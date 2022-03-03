@@ -6,6 +6,8 @@ const mysql = require("mysql");
 const cors = require("cors");
 app.use("/login", require("./routes/login"));
 
+var path = require("path");
+
 app.use(cors());
 app.use(express.json());
 
@@ -61,8 +63,7 @@ const db = mysql.createConnection({
   database: "newEastburyAWS",
 });
 
-var distDir = "../home.html";
-app.use(express.static(distDir));
+app.use(express.static(path.join(__dirname, "../home.html")));
 
 app.post("/courseSearch", (req, res) => {
   console.log(req.body);
