@@ -26,15 +26,15 @@ login buttons. */
 #home-login-btn {
   border-width: 0px;
   padding-top: -10px; /* to counteract the name heading padding top of 10px */
-  margin-top: -8px;
+  margin-top: 0px;
   font-size: 14px;
   height: 100%;
   background-color: white;
   color: black; /* font */
 }
 
-.btn-lg {
-  font-size: 500px;
+.item {
+  max-height: 500px;
 }
 
 #home-login-btn:focus {
@@ -72,6 +72,34 @@ login buttons. */
   border: 3px solid black;
 }
 
+.carousel-item {
+  height: 1000px;
+  margin-top: -100px;
+  margin-bottom: -200px;
+}
+
+.carousel-control.left {
+}
+.carousel-control.right {
+  left: 0;
+  z-index: 1;
+}
+
+.carousel {
+  max-height: 1000px;
+  z-index: 0;
+}
+
+#logo {
+  position: absolute;
+  height: 200px;
+  width: 400px;
+  z-index: 1;
+}
+
+.d-block {
+  max-height: 1500px;
+}
 #banner-text {
   height: 30px;
   width: 100%;
@@ -87,9 +115,66 @@ login buttons. */
 .col-2 .bottom-short-info-boxes {
   height: 100px;
   width: 100px;
+  padding-bottom: 10px;
+  align-content: center;
+  margin-top: 60px;
 }
 
-.col-2 crigne {
+.col-2 .bottom-short-info-boxes {
+  filter: hsl(39, 100%, 50%);
+}
+
+.d-block img {
+  width: 100%;
+}
+
+.carousel-inner {
+  border: 2px solid black;
+}
+.col-2.crigne {
   height: 100px;
   width: 100px;
+  margin-top: -150px;
+  border: 3px solid black;
+  overflow: hidden;
+  position: absolute;
+}
+
+.text {
+  position: relative;
+  font-size: 40px;
+}
+
+.images {
+  height: 200px;
+  width: 5000px;
+}
+
+figure {
+  border: 0px solid black;
+  height: 200px;
+  text-align: center;
+  justify-content: center;
+}
+
+figure img {
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+}
+
+figcaption {
+  font-size: 30px;
+  font-family: Calibri;
+}
+#crigne {
+  height: 100px;
+}
+
+.imagine {
+  height: 500px;
+  border: 15px solid black;
+  justify-content: center;
+  position: relative;
+  justify-items: center;
 }
