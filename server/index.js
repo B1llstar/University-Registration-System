@@ -61,7 +61,7 @@ const db = mysql.createConnection({
   database: "newEastburyAWS",
 });
 
-var distDir = __dirname + "../home.html";
+var distDir = "../home.html";
 app.use(express.static(distDir));
 
 app.post("/courseSearch", (req, res) => {
