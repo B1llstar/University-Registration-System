@@ -63,8 +63,9 @@ const db = mysql.createConnection({
   database: "newEastburyAWS",
 });
 
-app.use(express.static(path.join(__dirname, "../home.html")));
+app.use("/", express.static(path.join(__dirname), "../home.html"));
 
+console.log(path.basename(path.dirname(filename)));
 app.post("/courseSearch", (req, res) => {
   console.log(req.body);
   const crn = req.body.crn;
