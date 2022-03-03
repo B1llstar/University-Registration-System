@@ -1,8 +1,8 @@
 var express = require("express");
-router = express.Router();
 const cors = require("cors");
 const db = require("../database.js");
-const { response } = require("express");
+var router = require("express").Router();
+console.log("Current directory: " + process.cwd());
 
 router.use(express.json());
 router.use(cors());
@@ -13,6 +13,7 @@ router.post("/", (req, res) => {
   const userType = req.body.userType;
   var userID = "";
   var firstName = "";
+  console.log("Attempting login...");
 
   db.query(
     "SELECT * FROM loginInfo WHERE (userEmail = ? AND password = ?)",
