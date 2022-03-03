@@ -61,23 +61,8 @@ const db = mysql.createConnection({
   database: "newEastburyAWS",
 });
 
-app.post("/courseSearch", (req, res) => {
-  console.log(req.body);
-  const crn = req.body.crn;
-
-  db.query(
-    courseSearchQuery + "WHERE finalList.crn LIKE ?;",
-    [crn],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(result);
-        res.send(result);
-      }
-    }
-  );
-});
+var distDir = __dirname + "../home.html";
+app.use(express.static(distDir));
 
 app.post("/courseSearch", (req, res) => {
   console.log(req.body);
@@ -107,8 +92,8 @@ app.get("/ViewRegistration", (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 5505, () => {
-  console.log("Server running: port " + process.env.PORT || 5505);
+app.listen(process.env.PORT, () => {
+  console.log("Server running: port " + process.env.PORT);
 });
 
 module.exports = app;
