@@ -107,8 +107,8 @@ app.get("/ViewRegistration", (req, res) => {
   });
 });
 
-app.listen(5505, () => {
-  console.log("Server running: port 3305");
+app.listen(process.env.PORT || 5505, () => {
+  console.log("Server running: port " + this.address().port);
 });
 
 module.exports = app;
