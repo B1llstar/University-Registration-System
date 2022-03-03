@@ -1,10 +1,27 @@
 window.onload = function () {
   function login() {
-    axios.post("http://localhost:5505/login", {
-      username: "test",
-      password: "test",
-      userType: "test",
-    });
+    axios
+      .post("http://localhost:5505/login", {
+        username: loginUsernameSelection,
+        password: loginPasswordSelection,
+        userType: loginUserTypeSelection,
+      })
+      .then(
+        (response) => {
+          console.log(response);
+          console.log(response.data.validated);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+
+    var loginUserTypeSelection = document.getElementById("loginUserTypeChoice");
+    var loginUsernameSelection = document.getElementById("loginEmail");
+    var loginPasswordSelection = document.getElementById("loginPassword");
+    console.log(loginUserTypeSelection.value);
+    console.log(loginUsernameSelection.value);
+    console.log(loginPasswordSelection.value);
   }
 
   console.log("Loaded!");
@@ -14,6 +31,7 @@ window.onload = function () {
   function handleForm(event) {
     event.preventDefault();
   }
+
   form.addEventListener("submit", handleForm);
 
   if (ele.addEventListener) ele.addEventListener("click", login, false);

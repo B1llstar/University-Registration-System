@@ -16,8 +16,8 @@ router.post("/", (req, res) => {
   console.log("Attempting login...");
 
   db.query(
-    "SELECT * FROM loginInfo WHERE (userEmail = ? AND password = ?)",
-    [username, password],
+    "SELECT * FROM loginInfo WHERE (userEmail = ? AND password = ? AND userType = ?)",
+    [username, password, userType],
     (err, result) => {
       console.log(result);
       if (err) {
@@ -32,6 +32,12 @@ router.post("/", (req, res) => {
 
           console.log(result[0].userEmail);
           console.log(userID);
+
+          // This checks that their selection matches the ID
+          // of the username corresponding to the e-mail chosen
+          // So a Student (7XXXXXXXX) will fail to login if they chose
+          // anything other than Student
+
           switch (userType) {
             case "Admin":
               if (userID === "6") {
